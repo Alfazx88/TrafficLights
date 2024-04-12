@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUQ-ot-a6w">
-                                <rect key="frame" x="140" y="788" width="150" height="46"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUQ-ot-a6w">
+                                <rect key="frame" x="140" y="749" width="150" height="46"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="aEC-oF-c9T"/>
@@ -26,11 +26,14 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="NEXT">
-                                    <color key="titleColor" systemColor="labelColor"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="switchTrafficLightsDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0nZ-2N-3is"/>
+                                </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="MuT-1g-ix4">
-                                <rect key="frame" x="140" y="79" width="150" height="572"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="MuT-1g-ix4">
+                                <rect key="frame" x="140" y="79" width="150" height="490"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JqX-t1-UqE">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
@@ -40,14 +43,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FGl-Ep-mmV">
-                                        <rect key="frame" x="0.0" y="211" width="150" height="150"/>
+                                        <rect key="frame" x="0.0" y="170" width="150" height="150"/>
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="FGl-Ep-mmV" secondAttribute="height" multiplier="1:1" id="APj-ly-sbX"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJO-V1-bbI">
-                                        <rect key="frame" x="0.0" y="422" width="150" height="150"/>
+                                        <rect key="frame" x="0.0" y="340" width="150" height="150"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="hJO-V1-bbI" secondAttribute="height" multiplier="1:1" id="4xG-5d-TMG"/>
@@ -59,12 +62,20 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="JUQ-ot-a6w" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3Y4-Qa-m2U"/>
                             <constraint firstItem="MuT-1g-ix4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="UtZ-qd-2Yl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JUQ-ot-a6w" secondAttribute="bottom" constant="103" id="eug-Kj-u0J"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MuT-1g-ix4" secondAttribute="trailing" constant="140" id="lNl-hR-OwI"/>
                             <constraint firstItem="MuT-1g-ix4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="140" id="lSV-uc-Mw2"/>
                             <constraint firstItem="MuT-1g-ix4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nsw-wM-t9j"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="greenLightView" destination="hJO-V1-bbI" id="GXq-t9-lYb"/>
+                        <outlet property="redLightView" destination="JqX-t1-UqE" id="jqQ-Om-f13"/>
+                        <outlet property="switchTrafficLightsButton" destination="JUQ-ot-a6w" id="h2c-Jt-wA5"/>
+                        <outlet property="yellowLightView" destination="FGl-Ep-mmV" id="LVZ-yf-icq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -75,17 +86,14 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
