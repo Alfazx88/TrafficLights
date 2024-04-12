@@ -19,24 +19,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         switchTrafficLightsButton.layer.cornerRadius = 10
         switchTrafficLightsButton.setTitle("Start", for: .normal)
-        redLightView.layer.cornerRadius = 55
+        redLightView.layer.cornerRadius = redLightView.bounds.width / 2
+        yellowLightView.layer.cornerRadius = yellowLightView.bounds.width / 2
+        greenLightView.layer.cornerRadius = greenLightView.bounds.width / 2
         redLightView.alpha = 0.3
-        yellowLightView.layer.cornerRadius = 55
         yellowLightView.alpha = 0.3
-        greenLightView.layer.cornerRadius = 55
         greenLightView.alpha = 0.3
-
-        
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func switchTrafficLightsDidTapped() {
         switch trafficLightColor {
         case "":
+            switchTrafficLightsButton.setTitle("Next", for: .normal)
             greenLightView.alpha = 0.3
             redLightView.alpha = 1
             trafficLightColor = "Red"
-            switchTrafficLightsButton.setTitle("Next", for: .normal)
         case "Red":
             redLightView.alpha = 0.3
             yellowLightView.alpha = 1
@@ -48,11 +45,6 @@ class ViewController: UIViewController {
         default:
             break
         }
-        
-        
-        
-        
     }
-    
-}
+} //            думается, что можно было как-то изящней..
 
