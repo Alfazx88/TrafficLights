@@ -14,15 +14,18 @@ final class ViewController: UIViewController {
     @IBOutlet var greenLightView: UIView!
     
     @IBOutlet var switchTrafficLightsButton: UIButton!
-    var trafficLightColor = ""
+    
+    private var trafficLightColor = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         switchTrafficLightsButton.layer.cornerRadius = 10
-        switchTrafficLightsButton.setTitle("Start", for: .normal)
+        
         redLightView.layer.cornerRadius = redLightView.bounds.width / 2
         yellowLightView.layer.cornerRadius = yellowLightView.bounds.width / 2
         greenLightView.layer.cornerRadius = greenLightView.bounds.width / 2
+       
         redLightView.alpha = 0.3
         yellowLightView.alpha = 0.3
         greenLightView.alpha = 0.3
